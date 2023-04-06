@@ -6,7 +6,7 @@ Hopper provides fast cursor movement using only your keyboard! It's like Vim's e
 
 _This extension is a fork of [Jumpy](https://github.com/wmaurer/vscode-jumpy)_
 
-![hopper-preview](https://cloud.githubusercontent.com/assets/2899448/19660934/0481c44c-9a32-11e6-87cc-1f8913922ccb.gif)
+![hopper-preview](https://user-images.githubusercontent.com/1815203/230308347-860d621e-135e-42e3-a04e-e482e42b7bca.gif)
 
 ## Commands
 
