@@ -1,7 +1,9 @@
 out
 node_modules
 
-# Ignore built extentions
+# Built extentions
 *.vsix
+
+# System files
 .DS_Store
-yarn-error.log
+*.log

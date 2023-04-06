@@ -2,13 +2,15 @@
 
 ## Feature Overview
 
-Hopper provides fast cursor movement, inspired by Atom's package of the same name.
+Hopper provides fast cursor movement using only your keyboard! It's like Vim's easymotion, or NeoVim's Leap - but for VSCode.
+
+_This extension is a fork of [Jumpy](https://github.com/wmaurer/vscode-jumpy)_
 
 ![hopper-preview](https://cloud.githubusercontent.com/assets/2899448/19660934/0481c44c-9a32-11e6-87cc-1f8913922ccb.gif)
 
 ## Commands
 
-When Hopper is activated, decorations (two-letter codes) are created in the area around your cursor. Then simply type in a two letter code to jump to that position.
+When Hopper is activated, decorations (two-letter codes) are created in active editor. Type in a two letter code to jump to that position.
 
 Where the decorations are created is dependent on the command you use:
 
@@ -43,10 +45,6 @@ You can also set up a special keybinding to exit `Hopper mode`, for example `ESC
 
 Hopper settings can be configured by adding entries into your `settings.json` (File -> Preferences -> User Settings). The following settings are available:
 
-`"hopper.wordRegexp"`: The Regexp to use to match words in `Hopper Word Mode`. The default is `"\\w{2,}"` which matches a string of characters `[A-Za-z0-9_]`, length two or more. To match individual words inside camel case, for example, override with `"([A-Z]+([0-9a-z])*)|[a-z0-9]{2,}"`.
-
-`"hopper.lineRegexp"`: The Regexp to use to match empty lines (Hopper won't create decorations for empty lines). The default is `"^\\s*$"`
-
 `"hopper.fontFamily"`: Font used in Hopper decorations, defaults to font from settings
 
 `"hopper.fontSize"`: Font size used in Hopper decorations, defaults to font size from settings - 1
@@ -55,6 +53,18 @@ Hopper settings can be configured by adding entries into your `settings.json` (F
 
 `"hopper.foreground"`: Text color of Hopper decoration
 
+`"hopper.wordRegexp"`: The Regexp to use to match words in `Hopper Word Mode`. The default is `"\\w{2,}"` which matches a string of characters `[A-Za-z0-9_]`, length two or more. To match individual words inside camel case, for example, override with `"([A-Z]+([0-9a-z])*)|[a-z0-9]{2,}"`.
+
+`"hopper.lineRegexp"`: The Regexp to use to match empty lines (Hopper won't create decorations for empty lines). The default is `"^\\s*$"`
+
 ## Support
 
 [Create an issue](https://github.com/Bjorn-Eric-Abr/Hopper/issues)
+
+------
+
+#### Credits
+
+Forked from [Jumpy VSCode Extension](https://github.com/wmaurer/vscode-jumpy)
+
+Hopper logo image by [Larry George II](https://unsplash.com/@itslarryg)
