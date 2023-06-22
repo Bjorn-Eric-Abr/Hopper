@@ -4,7 +4,7 @@
     "description": "Hopper provides fast cursor movement using only your keyboard! It's like Vim's easymotion, or NeoVim's Leap - but for VSCode.",
     "icon": "images/hopper-icon.png",
     "license": "MIT",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "publisher": "bjorn-eric-abr",
     "engines": {
         "vscode": "^1.24.0"
