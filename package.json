@@ -64,6 +64,11 @@
             "type": "object",
             "title": "Hopper Configuration",
             "properties": {
+                "hopper.selectWord": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Whether to select the word after jumping to it"
+                },
                 "hopper.wordRegexp": {
                     "type": "string",
                     "default": "\\w{2,}",

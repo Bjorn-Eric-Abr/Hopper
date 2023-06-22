@@ -56,17 +56,16 @@ export function activate(context: vscode.ExtensionContext) {
         positions = hopperFn(codeArray.length, getLinesResult.firstLineNumber, getLinesResult.lines, regexp);
 
         const decorationsOffset = positions
-            .map(
-                (position, i) =>
-                    position.charOffset == 1
-                        ? null
-                        : createDecorationOptions(
-                              position.line,
-                              position.character,
-                              position.character + 2,
-                              context,
-                              codeArray[i],
-                          ),
+            .map((position, i) =>
+                position.charOffset == 1
+                    ? null
+                    : createDecorationOptions(
+                          position.line,
+                          position.character,
+                          position.character + 2,
+                          context,
+                          codeArray[i],
+                      ),
             )
             .filter(x => !!x);
 
@@ -84,8 +83,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     // register disposable functions
     const hopperWordDisposable = vscode.commands.registerCommand('extension.hopper-word', () => {
-        const configuration = vscode.workspace.getConfiguration('hopper');
         const defaultRegexp = '\\w{2,}';
+        const configuration = vscode.workspace.getConfiguration('hopper');
         const wordRegexp = configuration ? configuration.get<string>('wordRegexp', defaultRegexp) : defaultRegexp;
         runHopper(hopperWord, new RegExp(wordRegexp, 'g'));
     });
@@ -132,8 +131,23 @@ export function activate(context: vscode.ExtensionContext) {
             position.character,
         );
 
-        const reviewType: vscode.TextEditorRevealType = vscode.TextEditorRevealType.Default;
-        vscode.window.activeTextEditor.revealRange(vscode.window.activeTextEditor.selection, reviewType);
+        const configuration = vscode.workspace.getConfiguration('hopper');
+        const selectWord = configuration ? configuration.get<boolean>('selectWord', true) : true;
+
+        // Select jumped to-word
+        if (selectWord) {
+            const wordRange = editor.document.getWordRangeAtPosition(vscode.window.activeTextEditor.selection.start);
+            if (wordRange) {
+                // Create a new selection that includes the whole word
+                let newSelection = new vscode.Selection(wordRange.start, wordRange.end);
+
+                // Set the new selection in the editor
+                editor.selection = newSelection;
+            }
+        }
+
+        const revealType: vscode.TextEditorRevealType = vscode.TextEditorRevealType.Default;
+        vscode.window.activeTextEditor.revealRange(vscode.window.activeTextEditor.selection, revealType);
 
         setHopperMode(false);
     });
