@@ -45,6 +45,8 @@ You can also set up a special keybinding to exit `Hopper mode`, for example `ESC
 
 Hopper settings can be configured by adding entries into your `settings.json` (File -> Preferences -> User Settings). The following settings are available:
 
+`"hopper.selectWord"`: Select the jumped to word
+
 `"hopper.fontFamily"`: Font used in Hopper decorations, defaults to font from settings
 
 `"hopper.fontSize"`: Font size used in Hopper decorations, defaults to font size from settings - 1
